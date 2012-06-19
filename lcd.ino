@@ -1,7 +1,6 @@
 void init_lcd() {
- 
   lcd.begin(16, 2);
-   lcd.createChar(e, eursymbol);
+  lcd.createChar(e, eursymbol);
   lcd.clear();
   lcd.setBacklight(HIGH);
 }
@@ -52,5 +51,3 @@ void lcd_2_guthaben () {
     lcd_2("");
   }
 }
-
-

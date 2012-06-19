@@ -76,5 +76,16 @@ char* lcd2_old;
 
 int adm_state = 0;
 int adm_menu = 0;
+int stat_menu = 0;
 
+int keylog[100];
+int keycount = 0;
+
+
+long start_keylog_time = 0;
+long keylog_reset_time = 6000;
+
+int vend1 = 0;
+int vend2 = 0;
+int vend3 = 0;
 

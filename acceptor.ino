@@ -36,7 +36,6 @@
   }
   if(Serial.available() < 11)  {
   	lcd_1("ERR10 CALL SERVICE");
-        delay(500);
   } else {
   	for(int n=0; n<11; n++)
      	acceptor_state[n] = Serial.read() & 0x7F; // Then: Get them.
@@ -114,7 +113,7 @@ void make_status() {
   }
   if (acceptor_state[3] == STATE_IDLE) {    //Schein im Einzug
     account = account + add_money;
-    EEPROM.write(101,account);
+    EEPROM.write(11,account);
 
     if (debug==1){Serial.println("ADD");};
     add_money = 0;
