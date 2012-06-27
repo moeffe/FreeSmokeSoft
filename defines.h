@@ -1,7 +1,10 @@
+int debug = 0;           //Debug-.Ausgaben einschalten
+int debug_acc = 2;
+int debug_key = 1;
 
 //Defines für den Acceptor
 #define accout Serial.write
-#define accinp Serial.read
+//#define accinp Serial.read
 
 #define P1_LED 9
 #define P2_LED 10
@@ -15,8 +18,8 @@
 #define P1_MOTOR 3
 #define P2_MOTOR 5
 #define P3_MOTOR 6
-#define motor_angle_off 20
-#define motor_angle_on 160
+#define motor_angle_off 15
+#define motor_angle_on 165
 #define motor_delay 800
 #define motor_speed 5
 
@@ -45,8 +48,6 @@ int incB;                //eigehendes Byte
 
 int acceptor_state[11];  //Nachricht vom Scheinprüfer
 int toggle = 0;          //Umschalten Nachrichten an Scheinprüfer
-int debug = 0;           //Debug-.Ausgaben einschalten
-int debug_acc = 0;
 
 int active = 1;
 int i = 0;
@@ -56,6 +57,13 @@ char buff[4];
 long previousMillis = 0;        // will store last time LED was updated
 long interval = 500;           // interval at which to blink (milliseconds)
 int ledState = 0;
+
+//Text-Rotation
+long lcd_prevMillis = 0;        // will store last time LED was updated
+long lcd_interval = 1500;           // interval at which to blink (milliseconds)
+
+
+
 
 //Buttons
 int p1_actstate = 0;
@@ -88,4 +96,6 @@ long keylog_reset_time = 6000;
 int vend1 = 0;
 int vend2 = 0;
 int vend3 = 0;
+
+int lcd_anz = 1;
 

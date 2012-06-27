@@ -18,11 +18,18 @@ void led_blink() {
       ledState = 1;
     else
       ledState = 0;
-    // set the LED with the ledState of the variable:
-    if (stock1 > 0) {digitalWrite(P1_LED, ledState);} else {digitalWrite(P1_LED, LOW);};
-    if (stock2 > 0) {digitalWrite(P2_LED, ledState);} else {digitalWrite(P2_LED, LOW);};
-    if (stock3 > 0) {digitalWrite(P3_LED, ledState);} else {digitalWrite(P3_LED, LOW);};
   }
+  digitalWrite(P1_LED, ledState);
+  digitalWrite(P2_LED, ledState);
+  digitalWrite(P3_LED, ledState);
+}
+
+
+void led_steady() {
+  // set the LED with the ledState of the variable:
+    if (stock1 > 0) {digitalWrite(P1_LED, HIGH);} else {digitalWrite(P1_LED, LOW);};
+    if (stock2 > 0) {digitalWrite(P2_LED, HIGH);} else {digitalWrite(P2_LED, LOW);};
+    if (stock3 > 0) {digitalWrite(P3_LED, HIGH);} else {digitalWrite(P3_LED, LOW);};
 }
 
 void led_reset() {

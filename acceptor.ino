@@ -35,7 +35,7 @@
   	// hang in this loop until we either get 9 bytes of data or 1 second
   }
   if(Serial.available() < 11)  {
-  	lcd_1("ERR10 CALL SERVICE");
+  	active = 0;
   } else {
   	for(int n=0; n<11; n++)
      	acceptor_state[n] = Serial.read() & 0x7F; // Then: Get them.
@@ -109,7 +109,6 @@ void make_status() {
     if (acceptor_state[5] == 48 ) {add_money = 200;}
     //Schein jetzt einziehen
     message_heartbeat[4] = 32;
- 
   }
   if (acceptor_state[3] == STATE_IDLE) {    //Schein im Einzug
     account = account + add_money;

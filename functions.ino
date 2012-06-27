@@ -5,9 +5,10 @@
 void sell_product_or_tell_price() {
  if ( active == 1 ) {
   if (account < preis ) {   //noch nicht genug Guthaben
-      lcd_1(ltxt_coin);  //Geldeinwerfen
-      lcd_2_guthaben();
-      led_reset();
+    rotate_lcd(1);
+//      lcd_1(ltxt_coin);  //Geldeinwerfen
+//      lcd_2_guthaben();
+      led_blink();
       if (pushed > 0) {
         switch (pushed) {
         case 1:
@@ -32,9 +33,10 @@ void sell_product_or_tell_price() {
         delay(400);      
       }
     } else {        //genug Guthaben
-      lcd_1(ltxt_choose);  //Produkt wählen
-      lcd_2_guthaben();
-      led_blink();
+    rotate_lcd(2);
+//      lcd_1(ltxt_choose);  //Produkt wählen
+//      lcd_2_guthaben();
+      led_steady();
       
       //LEDsnach Produktwahl ausschalten
       if (pushed > 0) {
@@ -99,7 +101,8 @@ void sell_product_or_tell_price() {
      if (account != 0 ) {
      EEPROM.write(11,0);
      }
-
+//     delay(800);
+     active = 1;
  }
 }
 
@@ -172,6 +175,7 @@ void adm_action() {
         adm_state = 0;
         delay(500);
         adm_menu = 0;
+        active = 1;
       }
       break;
    }
